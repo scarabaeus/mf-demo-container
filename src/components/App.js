@@ -4,6 +4,7 @@ import Home from './Home';
 import './App.css';
 
 const Application1Module1 = React.lazy(() => import('Application1/Module1'));
+const Application1Module2 = React.lazy(() => import('Application1/Module2'));
 
 const App = () => {
   return (
@@ -37,7 +38,11 @@ const App = () => {
               <Application1Module1 name="via Container" />
             </React.Suspense>
           </Route>
-          <Route path="/module2">TODO</Route>
+          <Route path="/module2">
+            <React.Suspense fallback="Loading Module 2">
+              <Application1Module2 name="via Container" />
+            </React.Suspense>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
