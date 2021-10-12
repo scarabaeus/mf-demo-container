@@ -7,6 +7,7 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         /* The following line to ask babel 
              to compile any file with extension
@@ -28,10 +29,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'MFE2',
+      name: 'ContainerApplication',
       filename: 'remoteEntry.js',
       remotes: {
-        MFE1: 'MFE1@http://localhost:8083/remoteEntry.js',
+        Application1: 'Application1@http://localhost:8083/remoteEntry.js',
       },
     }),
     new HtmlWebpackPlugin({

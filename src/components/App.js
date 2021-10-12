@@ -1,16 +1,22 @@
 import React from 'react';
+import './App.css';
 
-const MFE1_Button = React.lazy(() => import('MFE1/Button'));
+const Application1Module1 = React.lazy(() => import('Application1/Module1'));
 
 const App = () => {
   return (
-    <div>
-      <h2>Container App</h2>
-      <div>
-        <React.Suspense fallback="Loading Button">
-          <MFE1_Button />
-        </React.Suspense>
-      </div>
+    <div
+      style={{
+        minHeight: '100vh',
+        width: '100%',
+        display: 'flex',
+        boxSizing: 'border-box',
+      }}
+    >
+      <div style={{ flexBasis: '200px', backgroundColor: '#bada55' }}>Menu</div>
+      <React.Suspense fallback="Loading Button">
+        <Application1Module1 name="Steve" />
+      </React.Suspense>
     </div>
   );
 };
