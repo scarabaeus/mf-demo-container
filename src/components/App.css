@@ -127,3 +127,9 @@ body,
 html {
   min-height: 100%;
 }
+
+code {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #ddd8d8;
+  font-size: 14px;
+}
