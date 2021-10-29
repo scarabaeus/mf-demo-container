@@ -5,6 +5,9 @@ module.exports = {
   devServer: {
     port: 8082,
   },
+  output: {
+    uniqueName: 'mf-demo-container',
+  },
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
@@ -33,6 +36,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       remotes: {
         Application1: 'Application1@http://localhost:8083/remoteEntry.js',
+        LegacyApplication: 'LegacyApplication@http://localhost:8084/remoteEntry.js',
       },
     }),
     new HtmlWebpackPlugin({
