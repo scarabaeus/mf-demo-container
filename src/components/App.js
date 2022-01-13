@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 
 const Application1Module1 = React.lazy(() => import('Application1/Module1'));
 const Application1Module2 = React.lazy(() => import('Application1/Module2'));
 const LegacyApplicationModuleA = React.lazy(() => import('LegacyApplication/ModuleA'));
 const LegacyApplicationModuleB = React.lazy(() => import('LegacyApplication/ModuleB'));
+const Module1MenuItem = React.lazy(() => import('LegacyApplication/Module1MenuItem'));
 
 const App = () => {
   return (
@@ -25,9 +27,12 @@ const App = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <Link to="/module1">Child Module 1</Link>
-              </li>
+              <ErrorBoundary>
+                <React.Suspense fallback="...">
+                  <Module1MenuItem />
+                </React.Suspense>
+              </ErrorBoundary>
+
               <li>
                 <Link to="/module2">Child Module 2</Link>
               </li>

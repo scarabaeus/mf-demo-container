@@ -8,7 +8,7 @@ const Home = () => {
         mf-demo-container Dependencies:
         <ul>
           <li>
-            <code>react 17.0.2</code>
+            <code>react {React.version}</code>
           </li>
           <li>
             <code>react-router 17.0.2</code>
